@@ -272,8 +272,8 @@ namespace Emboard
                                     }
                                     Van.statusVan[id_van_bat] = true;
                                     Van.countTimeOnVan[id_van_bat] = 0;
-                                    ImformationNode.timeDapUng.Remove(id_van_bat);
-                                    ImformationNode.timeDapUng.Add(id_van_bat,time_now_batvan);
+                                    InformationNode.timeDapUng.Remove(id_van_bat);
+                                    InformationNode.timeDapUng.Add(id_van_bat,time_now_batvan);
                                 }
                                 else
                                 {
@@ -291,8 +291,8 @@ namespace Emboard
                                 DisplayData("(" + showTime() + "): Du lieu theo yeu cau :\r\n Sensor " + sensor.Ip + "(" + sensor.Mac + "): \r\n     Nhiet do: " + sensor.Temperature + "\r\n     Do am: " + sensor.Humidity + "\r\n     Nang luong : " + sensor.Energy, txtShowData);
                                 try
                                 {
-                                    int time = DateTime.Now.Hour * 3600 + DateTime.Now.Minute * 60 + DateTime.Now.Second - (int)ImformationNode.timeDapUng[sensor.Mac];
-                                    ImformationNode.timeDapUng.Remove(sensor.Mac);
+                                    int time = DateTime.Now.Hour * 3600 + DateTime.Now.Minute * 60 + DateTime.Now.Second - (int)InformationNode.timeDapUng[sensor.Mac];
+                                    InformationNode.timeDapUng.Remove(sensor.Mac);
                                     DisplayData("Thoi gian dap ung lay du lieu: " + time + " giay\r\n", txtShowData);
                                     if (time < 60)
                                     {
@@ -359,8 +359,8 @@ namespace Emboard
                             try
                             {
                                 int time_now_canhbao = DateTime.Now.Hour * 3600 + DateTime.Now.Minute * 60 + DateTime.Now.Second;
-                                ImformationNode.timeDapUng.Remove("warning");
-                                ImformationNode.timeDapUng.Add("warning", time_now_canhbao);
+                                InformationNode.timeDapUng.Remove("warning");
+                                InformationNode.timeDapUng.Add("warning", time_now_canhbao);
                             }
                             catch { }
                             DisplayData("(" + showTime() + "):Canh bao chay tai node " + sensor.Mac, txtShowData);
@@ -405,8 +405,8 @@ namespace Emboard
                                 DisplayData("(" + showTime() + "): Da bat canh bao muc " + van.VanID, txtShowData);
                                 try
                                 {
-                                    int time_canhbao = DateTime.Now.Hour * 3600 + DateTime.Now.Minute * 60 + DateTime.Now.Second - (int)ImformationNode.timeDapUng["warning"];
-                                    ImformationNode.timeDapUng.Remove("warning");
+                                    int time_canhbao = DateTime.Now.Hour * 3600 + DateTime.Now.Minute * 60 + DateTime.Now.Second - (int)InformationNode.timeDapUng["warning"];
+                                    InformationNode.timeDapUng.Remove("warning");
                                     DisplayData("Thoi gian dap ung canh bao chay "+time_canhbao+" giay", txtShowData);
                                     if (time_canhbao < 60)
                                     {
@@ -462,8 +462,8 @@ namespace Emboard
                         }
                         try
                         {
-                            int time_actor = DateTime.Now.Hour * 3600 + DateTime.Now.Minute * 60 + DateTime.Now.Second - (int)ImformationNode.timeDapUng[actor.Mac];
-                            ImformationNode.timeDapUng.Remove(actor.Mac);
+                            int time_actor = DateTime.Now.Hour * 3600 + DateTime.Now.Minute * 60 + DateTime.Now.Second - (int)InformationNode.timeDapUng[actor.Mac];
+                            InformationNode.timeDapUng.Remove(actor.Mac);
                             DisplayData("Thoi gian dap ung dieu khien actor "+time_actor+" giay\r\n", txtShowData);
                             if (time_actor < 60)
                             {
@@ -580,9 +580,9 @@ namespace Emboard
                             DisplayData("(" + showTime() + "): Lenh gui tu WEB:", txtShowData);
                             string mac = web.DataReceiveFromWeb.Substring(0,2);
                             int time_web = DateTime.Now.Hour * 3600 + DateTime.Now.Minute * 60 + DateTime.Now.Second;
-                            ImformationNode.timeDapUng.Remove(mac);
+                            InformationNode.timeDapUng.Remove(mac);
                            // MessageBox.Show("qua dap ung mac");
-                            ImformationNode.timeDapUng.Add(mac,time_web);
+                            InformationNode.timeDapUng.Add(mac,time_web);
                            // MessageBox.Show("qua dap ung mac 1 :" + web.DataReceiveFromWeb);
                             web.DataReceiveFromWeb = web.DataReceiveFromWeb.Substring(0,8);
                             //a = web.DataReceiveFromWeb.Substring(2, 6);

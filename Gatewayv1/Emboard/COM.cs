@@ -212,7 +212,7 @@ namespace Emboard
                 //COMSMS.Encoding = Encoding.GetEncoding("iso-8859-1");//new
                 COMSMS.Open();
                 String[] strport = SerialPort.GetPortNames();
-                String x = "a";
+                //String x = "a";
                 String portopen = "";
                 if (COMSMS.IsOpen)
                 {

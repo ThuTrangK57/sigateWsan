@@ -16,7 +16,7 @@ using System.Text;
 
 namespace Emboard
 {
-    class Sensor:ImformationNode
+    class Sensor:InformationNode
     {
         /// <summary>
         /// Nhiet do cua sensor
@@ -114,5 +114,42 @@ namespace Emboard
             }
             catch { }
         }
+
+        //public void saveDataImage(string mac, string ip, byte[] img)
+        //{
+        //    try
+        //    {
+        //        db = new Database();
+        //        string time = DateTime.Now.ToString();
+        //        if (mac[0] == '3')  //sensor bao chay
+        //        {
+        //            if (db.CheckSensorBC(mac) == "true")
+        //            {
+        //                db.setNetworkIpSensorBC(mac, ip);
+        //                db.setStatusSensorBC(mac, true);
+        //            }
+        //            else
+        //            {
+        //                db.setSensor_bc(mac, ip, true);
+        //            }
+        //            db.SaveDataDB(t, h);
+        //            db.updateSensorBC(mac, ip, t, h, e, time);
+        //        }
+        //        else    //sensor vuon lan
+        //        {
+        //            if (db.CheckSensor(mac) == "true")
+        //            {
+        //                db.setNetworkIpSensor(mac, ip);
+        //                db.setActiveSensor(mac, true);
+        //            }
+        //            else
+        //            {
+        //                db.setNodeSensor(mac, ip, true);
+        //            }
+        //            db.updateSensor(mac, ip, t, h, e, time);
+        //        }
+        //    }
+        //    catch { }
+        //}
     }
 }

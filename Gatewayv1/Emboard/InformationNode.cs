@@ -17,7 +17,7 @@ using System.Collections;
 
 namespace Emboard
 {
-    class ImformationNode
+    class InformationNode
     {
         /// <summary>
         /// Dia chi mac cua cac node (sensor va actor)

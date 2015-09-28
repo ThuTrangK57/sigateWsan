@@ -69,7 +69,7 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
-    <Compile Include="ImformationNode.cs" />
+    <Compile Include="InformationNode.cs" />
     <Compile Include="libDatabase.cs" />
     <Compile Include="libDraw.cs" />
     <Compile Include="Process.cs" />

@@ -16,7 +16,7 @@ using System.Text;
 
 namespace Emboard
 {
-    class Actor:ImformationNode
+    class Actor:InformationNode
     {
         /// <summary>
         /// Trang thai actor

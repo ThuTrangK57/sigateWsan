@@ -16,8 +16,8 @@ namespace Emboard
             {
                 Database myDatabase = new Database();
                 int now = DateTime.Now.Hour * 3600 + DateTime.Now.Minute * 60 + DateTime.Now.Second;
-                ImformationNode.timeDapUng.Remove(sensor.Mac);
-                ImformationNode.timeDapUng.Add(sensor.Mac, now);
+                InformationNode.timeDapUng.Remove(sensor.Mac);
+                InformationNode.timeDapUng.Add(sensor.Mac, now);
                 sensor.Mac = cbnodeImg.Text.Substring(7, 2);
                 if (sensor.Mac[0] == '0')
                 {

@@ -43,6 +43,7 @@ namespace Emboard
             pnShow.Hide();
             btexit.Enabled = true;
             comPort.txtShowData = tbShow;
+            comPort.PicboxImage = picboxImage;
             comPort.TimerInit();
             comPort.Time_control = db.getTimeActor();
             comPort.Time_alarm = db.getTimeAlarm();

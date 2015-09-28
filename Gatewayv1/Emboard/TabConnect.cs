@@ -93,8 +93,8 @@ namespace Emboard
                 {
                     sensor.Mac = cbnode.Text.Substring(7, 2);
                     int now = DateTime.Now.Hour * 3600 + DateTime.Now.Minute * 60 + DateTime.Now.Second;
-                    ImformationNode.timeDapUng.Remove(sensor.Mac);
-                    ImformationNode.timeDapUng.Add(sensor.Mac,now);
+                    InformationNode.timeDapUng.Remove(sensor.Mac);
+                    InformationNode.timeDapUng.Add(sensor.Mac,now);
                     if (sensor.Mac[0] == '0')
                     {
                         sensor.Ip = myDatabase.getNetworkIpSensor(sensor.Mac);
@@ -117,8 +117,8 @@ namespace Emboard
                 else if (cbMalenh.SelectedIndex == 16)  //lenh lay dia chi sensor canh thiet bi android
                 {
                     int now = DateTime.Now.Hour * 3600 + DateTime.Now.Minute * 60 + DateTime.Now.Second;
-                    ImformationNode.timeDapUng.Remove(sensor.Mac);
-                    ImformationNode.timeDapUng.Add(sensor.Mac, now);
+                    InformationNode.timeDapUng.Remove(sensor.Mac);
+                    InformationNode.timeDapUng.Add(sensor.Mac, now);
                     sensor.Mac = cbMalenh.SelectedItem.ToString();
                     //sensor.Command = "FFFF333$";
                     //byte[] commandbyte = comPort.ConvertTobyte(sensor.Command);   //ham khong dung de chuyen doi kieu lenh nay
@@ -130,8 +130,8 @@ namespace Emboard
                 {
                     actor.Ip = myDatabase.getNetworkIpActor(actor.Mac);
                     int now = DateTime.Now.Hour * 3600 + DateTime.Now.Minute * 60 + DateTime.Now.Second;
-                    ImformationNode.timeDapUng.Remove(actor.Mac);
-                    ImformationNode.timeDapUng.Add(actor.Mac, now);
+                    InformationNode.timeDapUng.Remove(actor.Mac);
+                    InformationNode.timeDapUng.Add(actor.Mac, now);
                     int id = cbMalenh.SelectedIndex;
                     if (id < 8)
                     {

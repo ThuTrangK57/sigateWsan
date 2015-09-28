@@ -238,10 +238,12 @@ namespace Emboard
         /// Boc tach ban tin du lieu cac node lan can gui ve
         /// </summary>
         /// <param name="data"></param>
-        public void convertDataSensorNeibor(string data) //data: #RP:FFFFNNNNNNNN...
+        public void convertDataSensorNeibor(string data) //data: #RP:FFFF NN D0D1D2D3 D4D5D6D7...
         { 
             try
             {
+                sensor.Mac = data.Substring(8, 2);
+                sensor.Ip = data.Substring(4,4);
                 int count1 = 0/*so sensor can lay*/, count2 = 8/**/;
                 while(count2<(data.Length - 8))//thuc hien cho den khi count2 lon hon do dai data
                 {
@@ -259,11 +261,13 @@ namespace Emboard
         /// Su ly du lieu anh gui ve tu router
         /// </summary>
         /// <param name="data"></param>
-        public void convertDataPicture(string data)
+        public void convertDataPicture(string data) //data: #RI:FFFF D0D1D2D3 D4D5D6D7...
         {
             try
             {
-                int count1 = 0, count2 = 8;
+                sensor.Ip = data.Substring(4, 4);
+                sensor.Mac = data.Substring(8, 2);
+                int count1 = 0, count2 = 10;    //du lieu anh bat dau tu vi tri thu 10
                 while (count2 < (data.Length - 8)) //thuc hien cho den khi count2 >= do dai data
                 {
                     string str = data.Substring(count2, 2);
@@ -316,7 +320,7 @@ namespace Emboard
         {
             if (byteArrayIn != null)
             {
-                Bitmap bm = new Bitmap(9, 9);
+                Bitmap bm = new Bitmap(9, 9);   //gia su truoc, can sua lai
                 BitmapData bmdata = bm.LockBits(new Rectangle(0, 0, bm.Width, bm.Height), ImageLockMode.ReadWrite, bm.PixelFormat); //truyen vao hinh cu nhat
                 int offset = bmdata.Stride - bm.Width * 3;  //tinh gia tri offset
                 byte* p = (byte*)bmdata.Scan0;
