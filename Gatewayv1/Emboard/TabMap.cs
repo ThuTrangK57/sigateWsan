@@ -49,6 +49,31 @@ namespace Emboard
             db.setFalseBC();
             db.setValOff();
             db.setAllFalse();
+
+#region tabpicture begin
+            cbnodeImg.Items.Clear();
+            Database my_Database = new Database();
+            //Hien thi danh sach sensor khu vuon lan
+            XmlNodeList nodeSensor = ((XmlElement)my_Database.sensor).GetElementsByTagName("node");
+            foreach (XmlNode node in nodeSensor)
+            {
+                if (node.Attributes["status"].Value == "true" || node.Attributes["status"].Value == "True")
+                {
+                    string str = "Sensor " + node.Attributes["mac"].Value;
+                    cbnodeImg.Items.Add(str);
+                }
+            }
+            XmlNodeList nodeSensor_BC = ((XmlElement)my_Database.sensor_bc).GetElementsByTagName("node");
+            foreach (XmlNode node_BC in nodeSensor_BC)
+            {
+                if (node_BC.Attributes["status"].Value == "true" || node_BC.Attributes["status"].Value == "True")
+                {
+                    string str = "Sensor " + node_BC.Attributes["mac"].Value;
+                    cbnodeImg.Items.Add(str);
+                }
+            }
+#endregion 
+
 #if ACTOR_BAOCHAY
             cbMalenh.Items.Clear();
             cbMalenh.Items.Add("Lay nhiet do, do am");

@@ -67,25 +67,6 @@ namespace Emboard
         /// Doi tuong ve co so du lieu
         /// </summary>
         private Database db;
-
-        /// <summary>
-        /// Tao lenh lay du lieu nhiet do, do am cac sensor
-        /// </summary>
-        /// <param name="ip"></param>
-        /// <returns></returns>
-        public string CommandSensor(string ip)
-        {
-            try
-            {
-                return ip + "000$";
-            }
-            catch (Exception ex)
-            {
-                ERR = ex.Message;
-                return null;
-            }
-        }
-
  
         /// <summary>
         /// Lu du lieu cac sensor vao CSDL

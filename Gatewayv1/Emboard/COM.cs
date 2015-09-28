@@ -194,8 +194,8 @@ namespace Emboard
         /// Cac ham phuc vu truyen nhan du lieu qua cong COM module SMS
         /// </summary>
         /// 
-        public string[] messageL;
-        public string strm;
+        //public string[] messageL;
+        //public string strm;
         public void COMSMSInit()
         {
             //try

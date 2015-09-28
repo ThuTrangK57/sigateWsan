@@ -14,6 +14,7 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Drawing;
 using System.IO.Ports;
 using System.Windows.Forms;
 using System.Threading;
@@ -110,7 +111,7 @@ namespace Emboard
                     DataReadCOM = COMPort.ReadLine();
                     //DataReadCOM = COMPort.ReadExisting();
                     //MessageBox.Show("COM1 mở");
-                    if (DataReadCOM[0] != '#' && DataReadCOM[0] != 'R')   // sai o cho nay, can hoi lai 
+                    if (DataReadCOM[0] != '#' && DataReadCOM[0] != 'R')   // sai o cho nay, can hoi lai //not me HD
                     {
                         DisplayData(DataReadCOM, txtShowData);
                     }
@@ -332,6 +333,9 @@ namespace Emboard
                                 break;
                             case 'I': //neu du lieu gui ve la hinh anh
                                 Data.convertDataPicture(data);
+                                Bitmap bmImg = Data.byteArrayToBitmap(sensor.Picture);
+                                DisplayPicture(bmImg, PicboxImage);
+                                //picBoxImage.Image = bmImg;    //hien thi anh tren PicboxImage
                                 //////////////////////hien thi anh//////////
                                 //string filepath = null;
                                 //OpenFileDialog ofdImages = new OpenFileDialog();
@@ -339,9 +343,8 @@ namespace Emboard
                                 //{
                                 //    filepath = ofdImages.FileName;
                                 //}
-
-                                //pictureBox2.Image = Image.FromFile(filepath.ToString());
-                                //pictureBox1.SizeMode = PictureBoxSizeMode.AutoSize;
+                                //pictureBox2.Image = Img;
+                                //pictureBox2.SizeMode = PictureBoxSizeMode.Normal;
                                 /////////////////////////////////////////////
                                 DisplayData("(" + showTime() + "): Du lieu hinh anh :\r\n "+data, txtShowData);
                                 break;
@@ -549,7 +552,7 @@ namespace Emboard
               //  DisplayData("Request len web :", txtShowData);
                 string[] url = connection.Confix();
                 string uriCom = url[4];
-                string a = null;
+                //string a = null;
                 while (true)
                 {
                     web.DataReceiveFromWeb = web.receiveDataFromWeb(uriCom);

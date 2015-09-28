@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Emboard));
             this.tabMap = new System.Windows.Forms.TabPage();
             this.pnShow = new System.Windows.Forms.Panel();
             this.btshow = new System.Windows.Forms.Button();
@@ -101,8 +102,12 @@
             this.btConnect = new System.Windows.Forms.Button();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPicture = new System.Windows.Forms.TabPage();
-            this.btShowPicture = new System.Windows.Forms.Button();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.label14 = new System.Windows.Forms.Label();
+            this.cbnodeImg = new System.Windows.Forms.ComboBox();
+            this.bt = new System.Windows.Forms.Button();
+            this.txtImagePath = new System.Windows.Forms.TextBox();
+            this.btTakephoto = new System.Windows.Forms.Button();
+            this.picboxImage = new System.Windows.Forms.PictureBox();
             this.ctMenuVan = new System.Windows.Forms.ContextMenu();
             this.batvan = new System.Windows.Forms.MenuItem();
             this.tatvan = new System.Windows.Forms.MenuItem();
@@ -118,8 +123,7 @@
             this.menuHumi = new System.Windows.Forms.MenuItem();
             this.ctxMenuReset = new System.Windows.Forms.ContextMenu();
             this.mnReset = new System.Windows.Forms.MenuItem();
-            this.txtImagePath = new System.Windows.Forms.TextBox();
-            this.bt = new System.Windows.Forms.Button();
+            this.tbShow2 = new System.Windows.Forms.TextBox();
             this.tabMap.SuspendLayout();
             this.pnShow.SuspendLayout();
             this.tabSetting.SuspendLayout();
@@ -726,7 +730,6 @@
             this.cbMalenh.Items.Add("Tat van so 6");
             this.cbMalenh.Items.Add("Tat tat ca van");
             this.cbMalenh.Items.Add("Get node near Android system");
-            this.cbMalenh.Items.Add("Get picture");
             this.cbMalenh.Location = new System.Drawing.Point(76, 8);
             this.cbMalenh.Name = "cbMalenh";
             this.cbMalenh.Size = new System.Drawing.Size(150, 23);
@@ -809,29 +812,63 @@
             // 
             // tabPicture
             // 
+            this.tabPicture.Controls.Add(this.tbShow2);
+            this.tabPicture.Controls.Add(this.label14);
+            this.tabPicture.Controls.Add(this.cbnodeImg);
             this.tabPicture.Controls.Add(this.bt);
             this.tabPicture.Controls.Add(this.txtImagePath);
-            this.tabPicture.Controls.Add(this.btShowPicture);
-            this.tabPicture.Controls.Add(this.pictureBox2);
+            this.tabPicture.Controls.Add(this.btTakephoto);
+            this.tabPicture.Controls.Add(this.picboxImage);
             this.tabPicture.Location = new System.Drawing.Point(4, 25);
             this.tabPicture.Name = "tabPicture";
             this.tabPicture.Size = new System.Drawing.Size(465, 214);
             this.tabPicture.Text = "Picture";
             // 
-            // btShowPicture
+            // label14
             // 
-            this.btShowPicture.Location = new System.Drawing.Point(349, 3);
-            this.btShowPicture.Name = "btShowPicture";
-            this.btShowPicture.Size = new System.Drawing.Size(93, 28);
-            this.btShowPicture.TabIndex = 1;
-            this.btShowPicture.Text = "Show";
-            this.btShowPicture.Click += new System.EventHandler(this.btShowPicture_Click);
+            this.label14.Location = new System.Drawing.Point(320, 6);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(38, 20);
+            this.label14.Text = "Node";
             // 
-            // pictureBox2
+            // cbnodeImg
             // 
-            this.pictureBox2.Location = new System.Drawing.Point(3, 3);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(311, 179);
+            this.cbnodeImg.Location = new System.Drawing.Point(320, 28);
+            this.cbnodeImg.Name = "cbnodeImg";
+            this.cbnodeImg.Size = new System.Drawing.Size(142, 23);
+            this.cbnodeImg.TabIndex = 6;
+            // 
+            // bt
+            // 
+            this.bt.Location = new System.Drawing.Point(349, 185);
+            this.bt.Name = "bt";
+            this.bt.Size = new System.Drawing.Size(93, 26);
+            this.bt.TabIndex = 4;
+            this.bt.Text = "Browse...";
+            // 
+            // txtImagePath
+            // 
+            this.txtImagePath.Location = new System.Drawing.Point(3, 188);
+            this.txtImagePath.Name = "txtImagePath";
+            this.txtImagePath.Size = new System.Drawing.Size(311, 23);
+            this.txtImagePath.TabIndex = 3;
+            // 
+            // btTakephoto
+            // 
+            this.btTakephoto.Location = new System.Drawing.Point(349, 57);
+            this.btTakephoto.Name = "btTakephoto";
+            this.btTakephoto.Size = new System.Drawing.Size(93, 28);
+            this.btTakephoto.TabIndex = 1;
+            this.btTakephoto.Text = "Take photo";
+            this.btTakephoto.Click += new System.EventHandler(this.btTakephoto_Click);
+            // 
+            // picboxImage
+            // 
+            this.picboxImage.Image = ((System.Drawing.Image)(resources.GetObject("picboxImage.Image")));
+            this.picboxImage.Location = new System.Drawing.Point(3, 3);
+            this.picboxImage.Name = "picboxImage";
+            this.picboxImage.Size = new System.Drawing.Size(311, 179);
+            this.picboxImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             // 
             // ctMenuVan
             // 
@@ -906,20 +943,14 @@
             this.mnReset.Text = "Reset";
             this.mnReset.Click += new System.EventHandler(this.mnReset_Click);
             // 
-            // txtImagePath
+            // tbShow2
             // 
-            this.txtImagePath.Location = new System.Drawing.Point(3, 188);
-            this.txtImagePath.Name = "txtImagePath";
-            this.txtImagePath.Size = new System.Drawing.Size(311, 23);
-            this.txtImagePath.TabIndex = 3;
-            // 
-            // bt
-            // 
-            this.bt.Location = new System.Drawing.Point(349, 185);
-            this.bt.Name = "bt";
-            this.bt.Size = new System.Drawing.Size(93, 26);
-            this.bt.TabIndex = 4;
-            this.bt.Text = "Browse...";
+            this.tbShow2.Location = new System.Drawing.Point(320, 91);
+            this.tbShow2.Multiline = true;
+            this.tbShow2.Name = "tbShow2";
+            this.tbShow2.ReadOnly = true;
+            this.tbShow2.Size = new System.Drawing.Size(142, 91);
+            this.tbShow2.TabIndex = 8;
             // 
             // Emboard
             // 
@@ -1039,10 +1070,13 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button btGetNodeNear;
         private System.Windows.Forms.TabPage tabPicture;
-        private System.Windows.Forms.Button btShowPicture;
-        private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.Button btTakephoto;
+        private System.Windows.Forms.PictureBox picboxImage;
         private System.Windows.Forms.Button bt;
         private System.Windows.Forms.TextBox txtImagePath;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.ComboBox cbnodeImg;
+        private System.Windows.Forms.TextBox tbShow2;
     }
 }
 

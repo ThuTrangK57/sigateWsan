@@ -277,6 +277,7 @@ namespace Emboard
             }
         }
 
+        #region Image byteArray converter  (chua dung den)
         /// <summary>
         /// covert image to byte array
         /// </summary>
@@ -300,6 +301,37 @@ namespace Emboard
                 MemoryStream stream = new MemoryStream(byteArrayIn);
                 Image imageReturn = Image.FromStream(stream);
                 return imageReturn;
+            }
+            else return null;
+        }
+        #endregion
+
+        /// <summary>
+        /// convert byteArrayToBitmap
+        /// </summary>
+        /// <param name="byteArrayIn"></param>
+        /// <returns></returns>
+        unsafe
+        public Bitmap byteArrayToBitmap(byte[] byteArrayIn)
+        {
+            if (byteArrayIn != null)
+            {
+                Bitmap bm = new Bitmap(9, 9);
+                BitmapData bmdata = bm.LockBits(new Rectangle(0, 0, bm.Width, bm.Height), ImageLockMode.ReadWrite, bm.PixelFormat); //truyen vao hinh cu nhat
+                int offset = bmdata.Stride - bm.Width * 3;  //tinh gia tri offset
+                byte* p = (byte*)bmdata.Scan0;
+                for (int y = 0; y < bm.Height; y++)
+                {
+                    for (int x = 0; x < bm.Width; x++)
+                    {
+                        p[0] = byteArrayIn[y * bm.Height];
+                        p[1] = byteArrayIn[y * bm.Height + 1];
+                        p[2] = byteArrayIn[y * bm.Height + 2];
+                        p += 3;
+                    }
+                    p += offset;
+                }
+                return bm;
             }
             else return null;  
         }

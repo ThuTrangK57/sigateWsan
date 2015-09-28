@@ -126,18 +126,6 @@ namespace Emboard
                     comPort.DisplayData("(" + comPort.showTime() + "): Gui lenh dia chi MAC cac Node lan can Node (" + sensor.Mac + "):\r\n Ma lenh : " + commandbyte.ToString(), tbShow);
                     comPort.writeByteData(commandbyte);
                 }
-                else if (cbMalenh.SelectedIndex == 17)  //lenh lay hinh anh
-                {
-                    int now = DateTime.Now.Hour * 3600 + DateTime.Now.Minute * 60 + DateTime.Now.Second;
-                    ImformationNode.timeDapUng.Remove(sensor.Mac);
-                    ImformationNode.timeDapUng.Add(sensor.Mac, now);
-                    sensor.Mac = cbMalenh.SelectedItem.ToString();
-                    //sensor.Command = "FFFF444$";
-                    //byte[] commandbyte = comPort.ConvertTobyte(sensor.Command);   //ham khong dung de chuyen doi kieu lenh nay
-                    byte[] commandbyte = { 0xFF, 0xFF, 4, 4, 4};
-                    comPort.DisplayData("(" + comPort.showTime() + "): Gui lenh dia chi MAC cac Node lan can Node (" + sensor.Mac + "):\r\n Ma lenh : " + commandbyte.ToString(), tbShow);
-                    comPort.writeByteData(commandbyte);
-                }
                 else
                 {
                     actor.Ip = myDatabase.getNetworkIpActor(actor.Mac);

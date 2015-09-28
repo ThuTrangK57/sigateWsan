@@ -14,6 +14,8 @@ using System;
 using System.Windows.Forms;
 using System.Collections.Generic;
 using System.Text;
+using System.Drawing;
+using System.Drawing.Imaging;
 
 namespace Emboard
 {
@@ -21,6 +23,7 @@ namespace Emboard
     {
         public Panel mypanel = null;
         public TextBox txtShowData;
+        public PictureBox PicboxImage;
         private int index = 0;
         private string ERR = null;
         public int Index
@@ -116,6 +119,14 @@ namespace Emboard
                 listBox1.Text += msg + "\r\n";
                 listBox1.SelectionStart = listBox1.Text.Length;
                 listBox1.ScrollToCaret();
+            }));
+        }
+
+        public void DisplayPicture(Bitmap img, PictureBox picBox)
+        {
+            picBox.Invoke(new EventHandler(delegate
+            {
+                picBox.Image = img;
             }));
         }
     }

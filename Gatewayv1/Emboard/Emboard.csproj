@@ -32,6 +32,7 @@
     <FileAlignment>512</FileAlignment>
     <WarningLevel>4</WarningLevel>
     <GenerateSerializationAssemblies>Off</GenerateSerializationAssemblies>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -95,7 +96,7 @@
     <Compile Include="TabMap.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="tabPicture.cs">
+    <Compile Include="TabPicture.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="TabSetting.cs">
@@ -103,9 +104,6 @@
     </Compile>
     <Compile Include="Van.cs" />
     <Compile Include="WebServer.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="ClassDiagram1.cd" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CompactFramework.CSharp.targets" />
   <ProjectExtensions>

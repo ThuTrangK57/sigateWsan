@@ -39,7 +39,6 @@ namespace Emboard
             MessageBox.Show("SMS "+strmsg);
             #endregion
         }
-
        
     }
 }
