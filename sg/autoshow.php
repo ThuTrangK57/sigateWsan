@@ -159,7 +159,11 @@ while( $row1 = mysql_fetch_array($query1)){
 			
 			$bantin = $bantin."<b> Bản tin lấy vị trí sensor ...</b></br>";
 			$bantin = $bantin."Đã phát hiện vị trí sensor ".$mac." </br>";
-		}
+			
+			
+			if ('29' < $mac && $mac< '40' || $mac =="B1"){
+				$bc = 1;
+			}else $bc = 0;
 		
 		
 	}
