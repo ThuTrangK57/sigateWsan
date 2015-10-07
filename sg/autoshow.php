@@ -152,9 +152,16 @@ while( $row1 = mysql_fetch_array($query1)){
 			$bc = 1;
 		}else $bc = 0;
 	}
-
-
-	
+	if (strpos($result, "#RP") !== false){  
+		$network_ip = substr($result, 4, 4);
+		$mac = substr($result, 8, 2);
+		if("01"<=$mac && $mac < "A0"){
+			
+			$bantin = $bantin."<b> Bản tin lấy vị trí sensor ...</b></br>";
+			$bantin = $bantin."Đã phát hiện vị trí sensor ".$mac." </br>";
+		}
+		
+		
 	}
 	if (strpos($result, "#RI") !== false){ // #RI: NNNNMM
 		$network_ip = substr($result, 4, 4);//NNNN
